@@ -5,25 +5,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "tb_client")
-public class Client {
+@Entity
+@Table(name = "tb_student")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "code", nullable = false, unique = true)
+    @Column(name = "code", length = 10, nullable = false, unique = true)
     private String code;
-    
-    @Column(name = "name", nullable = false, length = 32)
+
+    @Column(name = "name", length = 32, nullable = false)
     private String name;
-    
-    @Column(name = "lastName", nullable = false, length = 32)
+
+    @Column(name = "lastName", length = 32, nullable = false)
     private String lastName;
-    
-    @Column(name = "age", nullable = false)
-    private Integer age;
-    
+
+    // TODO: relation with registration
+
     public Long getId() {
         return id;
     }
@@ -43,7 +44,7 @@ public class Client {
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -55,14 +56,5 @@ public class Client {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     
 }

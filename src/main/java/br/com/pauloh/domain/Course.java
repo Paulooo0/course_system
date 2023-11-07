@@ -8,24 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_product")
-public class Product {
+@Table(name = "tb_course")
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 32, nullable = false)
-    private String name;
-
     @Column(name = "code", length = 10, nullable = false, unique = true)
     private String code;
 
-    @Column(name = "price", nullable = false)
-    private Double price;
+    @Column(name = "name", length = 32, nullable = false)
+    private String name;
 
-    @Column(name = "category", length = 32, nullable = false)
-    private String category;
+    @Column(name = "decription", length = 64, nullable = false)
+    private String decription;
+
+    // TODO: to relation with registration
 
     public Long getId() {
         return id;
@@ -33,14 +32,6 @@ public class Product {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCode() {
@@ -51,20 +42,20 @@ public class Product {
         this.code = code;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getName() {
+        return name;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getDecription() {
+        return decription;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setDecription(String decription) {
+        this.decription = decription;
     }
     
 }
